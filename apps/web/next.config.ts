@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Paylaşılan paketler TypeScript kaynağı olarak gelir.
-  transpilePackages: ["@plakam/api"],
+  transpilePackages: ["@plakam/api", "@plakam/validation"],
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {

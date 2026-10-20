@@ -8,6 +8,7 @@ pnpm workspaces + Turborepo. Backend ayrı depoda: `plakam-nerde-api`.
 | `apps/web` | Next.js — kullanıcı sitesi (paylaşılan ilan önizlemesi, aranabilir arama sayfası) |
 | `apps/admin` | Vite + React — yönetim paneli, `admin.` alt alan adında |
 | `packages/api` | Tipli API istemcisi (`openapi-fetch`); tipler backend'in `openapi.json`'ından üretilir |
+| `packages/validation` | Plaka ve telefon kuralları (zod); backend'deki `normalizePlate`/`normalizePhone` ile birebir aynı, hata mesajları da |
 
 ```bash
 pnpm install
