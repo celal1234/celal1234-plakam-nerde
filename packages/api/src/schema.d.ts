@@ -728,12 +728,12 @@ export interface components {
             email: string;
             password: string;
         };
-        TokenPair: {
+        TokenResponse: {
             accessToken: string;
-            refreshToken: string;
+            refreshToken?: string;
         };
         RefreshDto: {
-            refreshToken: string;
+            refreshToken?: string;
         };
         ForgotPasswordDto: {
             /** Format: email */
@@ -1473,7 +1473,10 @@ export interface operations {
     AuthController_login: {
         parameters: {
             query?: never;
-            header?: never;
+            header?: {
+                /** @description Tarayıcıda `cookie`: refresh token gövde yerine httpOnly cookie ile taşınır */
+                "X-Token-Transport"?: "cookie";
+            };
             path?: never;
             cookie?: never;
         };
@@ -1488,7 +1491,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["TokenPair"];
+                    "application/json": components["schemas"]["TokenResponse"];
                 };
             };
             /** @description Hata */
@@ -1505,7 +1508,10 @@ export interface operations {
     AuthController_refresh: {
         parameters: {
             query?: never;
-            header?: never;
+            header?: {
+                /** @description Tarayıcıda `cookie`: refresh token gövde yerine httpOnly cookie ile taşınır */
+                "X-Token-Transport"?: "cookie";
+            };
             path?: never;
             cookie?: never;
         };
@@ -1520,7 +1526,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["TokenPair"];
+                    "application/json": components["schemas"]["TokenResponse"];
                 };
             };
             /** @description Hata */
@@ -1537,7 +1543,10 @@ export interface operations {
     AuthController_logout: {
         parameters: {
             query?: never;
-            header?: never;
+            header?: {
+                /** @description Tarayıcıda `cookie`: refresh token gövde yerine httpOnly cookie ile taşınır */
+                "X-Token-Transport"?: "cookie";
+            };
             path?: never;
             cookie?: never;
         };
@@ -2578,7 +2587,10 @@ export interface operations {
     AdminMfaController_verify: {
         parameters: {
             query?: never;
-            header?: never;
+            header?: {
+                /** @description Tarayıcıda `cookie`: refresh token gövde yerine httpOnly cookie ile taşınır */
+                "X-Token-Transport"?: "cookie";
+            };
             path?: never;
             cookie?: never;
         };
@@ -2593,7 +2605,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["TokenPair"];
+                    "application/json": components["schemas"]["TokenResponse"];
                 };
             };
             /** @description Hata */
