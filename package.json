@@ -1,0 +1,19 @@
+{
+  "name": "plakam-nerde",
+  "private": true,
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "api:generate": "pnpm --filter @plakam/api generate"
+  },
+  "devDependencies": {
+    "turbo": "^2.11.9"
+  }
+}
